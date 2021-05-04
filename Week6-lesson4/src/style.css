@@ -1,0 +1,91 @@
+body {
+  background-image: url(https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  margin: 150px;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 120px;
+  text-align: right;
+  font-weight: 700px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+input {
+  width: 90%;
+  font-size: 15px;
+  font-style: italic;
+  padding: 5px;
+}
+
+button {
+  color: white;
+  background-color: #414141;
+  border: none;
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+.city-search {
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.container {
+  color: #414141;
+}
+
+.weather-detail {
+  font-style: italic;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.tempMeasure {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.feels-like {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.today {
+  margin-bottom: 20px;
+  line-height: 35px;
+}
+
+.next-week {
+  line-height: 35px;
+}
+
+.tempFahrenheit:hover {
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.tempCelsius:hover {
+  cursor: pointer;
+  font-weight: bolder;
+}
