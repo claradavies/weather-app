@@ -126,4 +126,4 @@ tempCelsius.addEventListener("click", convertCelsius);
 let tempFahrenheit = document.querySelector(".tempFahrenheit");
 tempFahrenheit.addEventListener("click", convertFahrenheit);
 
-searchCity("Lisbon");
+searchCity("London");
