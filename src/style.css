@@ -29,7 +29,7 @@ h4 {
 }
 
 input {
-  width: 90%;
+  width: 100%;
   font-size: 15px;
   font-style: italic;
   padding: 5px;
@@ -79,6 +79,7 @@ a:hover {
   color: #414141;
   margin: 0 auto;
   max-width: 2000px;
+  min-width: 885px;
 }
 
 .weather-detail {
@@ -89,7 +90,7 @@ a:hover {
   font-weight: 500;
 }
 
-.tempMeasure {
+.tempUnit {
   font-size: 20px;
   margin-top: 20px;
 }
