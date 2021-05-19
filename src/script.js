@@ -1,8 +1,18 @@
-function formatDate(now) {
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    let day = days[now.getDay()];
+function formatDate(timestamp) {
 
-    let date = now.getDate();
+    let now = new Date(timestamp);
+
+    let days = [
+        "Sun", 
+        "Mon", 
+        "Tue", 
+        "Wed", 
+        "Thu", 
+        "Fri", 
+        "Sat"
+    ];
+
+    let day = days[now.getDay()];
 
     let months = [
         "Jan",
@@ -18,6 +28,7 @@ function formatDate(now) {
         "Nov",
         "Dec"
     ];
+
     let month = months[now.getMonth()];
 
     let hour = now.getHours();
@@ -30,11 +41,16 @@ function formatDate(now) {
         minute = `0${minute}`;
     }
 
-    return `${day} - ${date}, ${month}, ${hour}:${minute}`;
+    let date = now.getDate();
+
+    return `${day}, ${month}, ${date} - ${hour}:${minute}`;
 }
 
 function showTemperature(response) {
     document.querySelector("#city").innerHTML = response.data.name;
+
+    let dateElement = document.querySelector("#date");
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
     let temp = Math.round(response.data.main.temp);
     let currentTemp = document.querySelector("#currentTemp");
@@ -100,7 +116,7 @@ function handlePosition(position) {
 function convertCelsius(event){
     event.preventDefault();
     let currentTemp = document.querySelector("#currentTemp");
-    
+
     celsiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
 
@@ -117,10 +133,6 @@ function convertFahrenheit(event) {
     let tempFahrenheit = (celsius * 9) / 5 + 32;
     currentTemp.innerHTML = Math.round(tempFahrenheit);
 }
-
-let dateElement = document.querySelector("#date");
-let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("#citySearch");
 searchForm.addEventListener("submit", handleSubmit);
