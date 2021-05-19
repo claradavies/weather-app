@@ -100,13 +100,21 @@ function handlePosition(position) {
 function convertCelsius(event){
     event.preventDefault();
     let currentTemp = document.querySelector("#currentTemp");
+    
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+
     currentTemp.innerHTML = Math.round(celsius);
 }
 
 function convertFahrenheit(event) {
     event.preventDefault();
-    let tempFahrenheit = (celsius * 9) / 5 + 32;
     let currentTemp = document.querySelector("#currentTemp");
+
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+
+    let tempFahrenheit = (celsius * 9) / 5 + 32;
     currentTemp.innerHTML = Math.round(tempFahrenheit);
 }
 
@@ -122,10 +130,10 @@ locationButton.addEventListener("click", searchLocation);
 
 let celsius = null;
 
-let tempCelsius = document.querySelector(".tempCelsius");
-tempCelsius.addEventListener("click", convertCelsius);
+let celsiusLink = document.querySelector(".tempCelsius");
+celsiusLink.addEventListener("click", convertCelsius);
 
-let tempFahrenheit = document.querySelector(".tempFahrenheit");
-tempFahrenheit.addEventListener("click", convertFahrenheit);
+let fahrenheitLink = document.querySelector(".tempFahrenheit");
+fahrenheitLink.addEventListener("click", convertFahrenheit);
 
 searchCity("London");
