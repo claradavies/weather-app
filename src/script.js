@@ -31,11 +31,7 @@ function formatDate(now) {
     }
 
     return `${day} - ${date}, ${month}, ${hour}:${minute}`;
-};
-
-function updateTime(timestamp) {
-    return `${hour}:${minute}`;
-};
+}
 
 function showTemperature(response) {
     document.querySelector("#city").innerHTML = response.data.name;
@@ -68,9 +64,7 @@ function showTemperature(response) {
     let humidity = document.querySelector("#humidity");
     humidity.innerHTML = `${newHumidity}%`;
 
-    let newSunset = updateTime(response.data.sys.sunset * 1000);
-    let sunset = document.querySelector("#sunset");
-    sunset.innerHTML = newSunset;
+    celsius = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -105,16 +99,15 @@ function handlePosition(position) {
 
 function convertCelsius(event){
     event.preventDefault();
-    let tempCelsius = 19;
     let currentTemp = document.querySelector("#currentTemp");
-    currentTemp.innerHTML = tempCelsius;
+    currentTemp.innerHTML = Math.round(celsius);
 }
 
 function convertFahrenheit(event) {
     event.preventDefault();
-    let tempFahrenheit = 66;
+    let tempFahrenheit = (celsius * 9) / 5 + 32;
     let currentTemp = document.querySelector("#currentTemp");
-    currentTemp.innerHTML = tempFahrenheit;
+    currentTemp.innerHTML = Math.round(tempFahrenheit);
 }
 
 let dateElement = document.querySelector("#date");
@@ -126,6 +119,8 @@ searchForm.addEventListener("submit", handleSubmit);
 
 let locationButton = document.querySelector("button");
 locationButton.addEventListener("click", searchLocation);
+
+let celsius = null;
 
 let tempCelsius = document.querySelector(".tempCelsius");
 tempCelsius.addEventListener("click", convertCelsius);
