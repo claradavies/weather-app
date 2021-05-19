@@ -31,8 +31,11 @@ function formatDate(now) {
     }
 
     return `${day} - ${date}, ${month}, ${hour}:${minute}`;
+};
 
-}
+function updateTime(timestamp) {
+    return `${hour}:${minute}`;
+};
 
 function showTemperature(response) {
     document.querySelector("#city").innerHTML = response.data.name;
@@ -63,7 +66,11 @@ function showTemperature(response) {
 
     let newHumidity = response.data.main.humidity;
     let humidity = document.querySelector("#humidity");
-    humidity.innerHTML = `${newHumidity}%`
+    humidity.innerHTML = `${newHumidity}%`;
+
+    let newSunset = updateTime(response.data.sys.sunset * 1000);
+    let sunset = document.querySelector("#sunset");
+    sunset.innerHTML = newSunset;
 }
 
 function searchCity(city) {
