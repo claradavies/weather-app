@@ -100,9 +100,13 @@ footer a {
   line-height: 35px;
 }
 
-.next-week {
-  line-height: 35px;
-  margin-top: 20px;
+.this-week {
+  line-height: 15px;
+}
+
+.this-week-heading {
+  margin-top: 35px;
+  margin-bottom: 20px;
 }
 
 .tempUnit a {

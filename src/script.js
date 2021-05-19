@@ -46,6 +46,42 @@ function formatDate(timestamp) {
     return `${day}, ${month}, ${date} - ${hour}:${minute}`;
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = "";
+    let days = ["Mon", "Tue", "Wed"];
+    days.forEach(function (day) {
+    forecastHTML = 
+        forecastHTML + 
+        `
+                <div class="row">
+                  <div class="col-5">
+                    <ul>
+                      <li>
+                        ${day}
+                      </li>                 
+                  </div>
+                  <div class="col-3">
+                    <ul>
+                      <li>
+                        ↓ 9˚C
+                      </li>  
+                  </div>
+                  <div class="col-3">
+                    <ul>
+                      <li>
+                        ↑ 18˚C
+                      </li>                    
+                    </div>
+                </div>
+              </div>
+    `;
+    });
+
+    forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
     document.querySelector("#city").innerHTML = response.data.name;
 
@@ -149,3 +185,4 @@ let fahrenheitLink = document.querySelector(".tempFahrenheit");
 fahrenheitLink.addEventListener("click", convertFahrenheit);
 
 searchCity("London");
+displayForecast();
